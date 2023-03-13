@@ -23,7 +23,7 @@ public class ScreenFactory : IScreenFactory
         _sessionController = sessionController;
     }
 
-    public Screen? CreateScreen(Type type, Hero? hero = null)
+    public Screen CreateScreen(Type type, Hero? hero = null)
     {
         Console.WriteLine(type);
         if (type == typeof(HeroesListScreen))
@@ -43,7 +43,8 @@ public class ScreenFactory : IScreenFactory
             return new LoginScreen(_sessionController, _printer, _log);
         }
         _log.Error($"ScreenFactory.createScreen: Can't create type {type} with parameters {hero}");
-        return null; // TODO replace with something usefull
+        //return null; // TODO replace with something usefull
+        throw new Exception("Screentype wrong");
     }
 
     private Screen HeroScreen(Hero hero, ILog log)

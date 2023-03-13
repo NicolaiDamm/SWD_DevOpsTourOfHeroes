@@ -24,8 +24,9 @@ public class Ui : IUi, IObserver
 
     public Ui(Controller controller, Screen? screen, ILog log, IScreenFactory screenFactory)
     {
-        Screen = screen;
         ScreenFactory = screenFactory;
+        Screen = screen ?? screenFactory.CreateScreen(typeof(LoginScreen))!;
+        _screen = Screen;
         _controller = controller;
         _log = log;
         _controller.Add(this);

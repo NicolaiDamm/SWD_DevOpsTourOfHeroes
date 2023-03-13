@@ -49,14 +49,14 @@ public class DashboardScreen : Screen
         if (cursorPosition == 0)
         {
             _log.Info($"DashboardScreen.Enter: Switching to HeroesListScreen");
-            ui.Screen = ui.ScreenFactory.CreateScreen(typeof(HeroesListScreen));
+            ui.Screen = ui.ScreenFactory.CreateScreen(typeof(HeroesListScreen))!;
         }
         else
         {
             var heroIndex = cursorPosition - 1;
             _log.Info($"DashboardScreen.Enter: Switching to HeroScreen for hero with index {heroIndex}");
             // TODO how to go back to right place
-            ui.Screen = ui.ScreenFactory.CreateScreen(typeof(HeroScreen), _heroesController.GetDashboardHeroes()[heroIndex]);
+            ui.Screen = ui.ScreenFactory.CreateScreen(typeof(HeroScreen)!, _heroesController.GetDashboardHeroes()[heroIndex])!;
         }
     }
     
