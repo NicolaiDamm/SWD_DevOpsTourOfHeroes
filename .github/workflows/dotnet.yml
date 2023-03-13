@@ -29,7 +29,7 @@ jobs:
     - name: use this action, test solution dir
       uses: zyborg/dotnet-tests-report@v1
       with:
-          project_path: tests/My.Project.Tests
+          project_path: ./ToH.Tests
           report_name: my_project_tests
           report_title: My Project Tests
           github_token: ${{ secrets.GITHUB_TOKEN }}
